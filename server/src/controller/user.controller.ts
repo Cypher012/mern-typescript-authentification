@@ -149,8 +149,5 @@ export async function resetPasswordHandler(
 }
 
 export async function getCurrentUserHandler(req: Request, res: Response) {
-  return res.send(res.locals.user);
+  return res.send(req.user);
 }
-
-// setInterval(() => console.log(generateKey()), 2000);
-console.log(generateKey());

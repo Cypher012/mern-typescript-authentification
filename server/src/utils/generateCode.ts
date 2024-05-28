@@ -22,7 +22,7 @@ export function generateCode(): string {
 }
 
 export function generateKey() {
-  const length = Math.floor(Math.random() * 50) + 450;
+  const length = Math.floor(Math.random() * 50) + 150;
   const accessTokenPrivateKey = crypto
     .randomBytes(length)
     .toString("base64url");
