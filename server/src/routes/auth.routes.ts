@@ -1,7 +1,11 @@
 import express from "express";
 import { validateResource } from "../middleware/validateResource";
 import { createSessionSchema } from "../schema/auth.schema";
-import { createSessionHandler } from "../controller/auth.controller";
+import {
+  createSessionHandler,
+  refreshAccessTokenHandler,
+} from "../controller/auth.controller";
+import { requireUser } from "../middleware/requireUser";
 
 const router = express.Router();
 
@@ -10,5 +14,7 @@ router.post(
   validateResource(createSessionSchema),
   createSessionHandler
 );
+
+router.post("/api/refresh", requireUser, refreshAccessTokenHandler);
 
 export default router;
